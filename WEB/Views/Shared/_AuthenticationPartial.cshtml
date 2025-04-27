@@ -11,8 +11,19 @@
     }
     else
     {
-        <li class="nav-item ms-auto">
-            <a class="btn btn-outline-danger" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
-        </li>
+       <div class="ms-auto d-flex">
+            @if (User.IsInRole("admin"))
+            {
+                <div class="nav-item">
+                    <a class="btn btn-outline-success" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Paneli</a>
+                </div>
+            }
+            <div class="nav-item mx-2">
+                <a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Edit">Bilgileri Düzenle</a>
+            </div>
+            <div class="nav-item">
+                <a class="btn btn-outline-danger" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+            </div>
+       </div>
     }
 }

@@ -2,27 +2,29 @@
 
 namespace WEB.Models.AccountViewModels
 {
-    public class RegisterVM
+    public class EditUserVM
     {
+        public required string Id { get; set; }
+
         [Display(Name = "Ad")]
         [Required(ErrorMessage = "Bu alan zorunludur!")]
         [MaxLength(120, ErrorMessage = "120 karakter sınırını geçtiniz!")]
         [MinLength(2, ErrorMessage = "En az 2 karakter girmelisiniz!")]
-        [RegularExpression("^[a-zA-ZıİşŞğĞçÇöÖüÜ ]+$", ErrorMessage = "Sadece harf ve boşluk girebilirsiniz!")]
+        [RegularExpression("^[a-zA-ZıİşŞğĞöÖüÜ ]+$", ErrorMessage = "Sadece harf ve boşluk girebilirsiniz!")]
         public string FirstName { get; set; }
 
         [Display(Name = "Soyad")]
         [Required(ErrorMessage = "Bu alan zorunludur!")]
         [MaxLength(120, ErrorMessage = "120 karakter sınırını geçtiniz!")]
         [MinLength(2, ErrorMessage = "En az 2 karakter girmelisiniz!")]
-        [RegularExpression("^[a-zA-ZıİşŞğĞçÇöÖüÜ ]+$", ErrorMessage = "Sadece harf ve boşluk girebilirsiniz!")]
+        [RegularExpression("^[a-zA-ZıİşŞğĞöÖüÜ ]+$", ErrorMessage = "Sadece harf ve boşluk girebilirsiniz!")]
         public string LastName { get; set; }
-        
+
         [Display(Name = "Kullanıcı Adı")]
         [Required(ErrorMessage = "Bu alan zorunludur!")]
         [MaxLength(30, ErrorMessage = "30 karakter sınırını geçtiniz!")]
         [MinLength(3, ErrorMessage = "En az 3 karakter girmelisiniz!")]
-        [RegularExpression("^[a-zA-Z0-9 ıİşŞğĞçÇöÖüÜ-]+$", ErrorMessage = "Sadece harf, sayı, boşluk ve \"-\" girebilirsiniz!")]
+        [RegularExpression("^[a-zA-Z0-9 ıİşŞğĞöÖüÜ-]+$", ErrorMessage = "Sadece harf, sayı, boşluk ve \"-\" girebilirsiniz!")]
         public string UserName { get; set; }
 
         [Display(Name = "E-Mail")]
@@ -35,22 +37,5 @@ namespace WEB.Models.AccountViewModels
         [Required(ErrorMessage = "Bu alan zorunludur!")]
         [DataType(DataType.Date)]
         public DateOnly Birthdate { get; set; }
-
-        [Display(Name = "Şifre")]
-        [Required(ErrorMessage = "Bu alan zorunludur!")]
-        [MaxLength(10, ErrorMessage = "10 karakter sınırını geçtiniz!")]
-        [MinLength(3, ErrorMessage = "En az 3 karakter girmelisiniz!")]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-        
-        [Display(Name = "Şifre Tekrar")]
-        [Required(ErrorMessage = "Bu alan zorunludur!")]
-        [MaxLength(10, ErrorMessage = "10 karakter sınırını geçtiniz!")]
-        [MinLength(3, ErrorMessage = "En az 3 karakter girmelisiniz!")]
-        [Compare(nameof(Password), ErrorMessage = "Şifreler uyuşmuyor!")]
-        [DataType(DataType.Password)]
-        public string CheckPassword { get; set; }
-
-
     }
 }
